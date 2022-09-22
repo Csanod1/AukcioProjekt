@@ -17,12 +17,13 @@ public class Festmeny {
         this.cim = cim;
         this.festo = festo;
         this.stilus = stilus;
-    }
-
-    public Festmeny() {
         this.licitekSzama = 0;
         this.legmagasabbLicit = 0;
         this.elkelt = false;
+    }
+
+    public Festmeny() {
+
     }
 
     public String getCim() {
@@ -58,7 +59,6 @@ public class Festmeny {
     }
     
     public void licit(){
-        double szam;
         if (this.elkelt = true){
             System.out.println("Hibás próbálkozás, a tárgy már elkelt");
         } else if (this.licitekSzama == 0) {
@@ -66,7 +66,20 @@ public class Festmeny {
             this.licitekSzama++;
             this.legutolsoLicitIdeje = LocalDateTime.now();
         }else{
-            szam = (this.legmagasabbLicit*1.1);
+            this.legmagasabbLicit = Integer.parseInt(String.valueOf(Math.round(legmagasabbLicit*1.1)));
+        }
+    }
+    public void licit(int mertek){
+        if (mertek <= 10 || mertek >= 100){
+            System.out.println("Hibás próbálkozás,minimum 10% és maximum 100%-os növekedés lehetséges");
+        }
+        else if (this.elkelt = true){
+            System.out.println("Hibás próbálkozás, a tárgy már elkelt");
+        } else if (this.licitekSzama == 0) {
+            this.legmagasabbLicit = 100;
+            this.licitekSzama++;
+            this.legutolsoLicitIdeje = LocalDateTime.now();
+        }else{
             this.legmagasabbLicit = Integer.parseInt(String.valueOf(Math.round(legmagasabbLicit*1.1)));
         }
     }
