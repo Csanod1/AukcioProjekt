@@ -19,6 +19,7 @@ public class Festmeny {
         this.stilus = stilus;
         this.licitekSzama = 0;
         this.legmagasabbLicit = 0;
+        this.legutolsoLicitIdeje = null;
         this.elkelt = false;
     }
 
@@ -57,30 +58,56 @@ public class Festmeny {
     public void setElkelt(boolean elkelt) {
         this.elkelt = elkelt;
     }
+
+
     
     public void licit(){
-        if (this.elkelt = true){
+        if (this.elkelt){
             System.out.println("Hibás próbálkozás, a tárgy már elkelt");
-        } else if (this.licitekSzama == 0) {
-            this.legmagasabbLicit = 100;
-            this.licitekSzama++;
-            this.legutolsoLicitIdeje = LocalDateTime.now();
-        }else{
-            this.legmagasabbLicit = Integer.parseInt(String.valueOf(Math.round(legmagasabbLicit*1.1)));
         }
+        if (this.licitekSzama == 0) {
+            this.legmagasabbLicit = 100;
+        }else{
+            //this.legmagasabbLicit = Integer.parseInt(String.valueOf(Math.round(legmagasabbLicit*1.1))); sajat megoldás
+            int ujLicit = (int)(legmagasabbLicit * 1.1);
+            String szovegesLicit = String.valueOf(ujLicit);
+            int hossz = szovegesLicit.length();
+            StringBuilder veglegesLicit = new StringBuilder(szovegesLicit.substring(0,2));
+            for (int i = 0; i < hossz-2; i++) {
+                veglegesLicit.append(0);
+            }
+            int veglegesLicitOsszeg = Integer.parseInt(veglegesLicit.toString());
+            this.legmagasabbLicit = veglegesLicitOsszeg;
+        }
+        this.licitekSzama++;
+        this.legutolsoLicitIdeje = LocalDateTime.now();
     }
     public void licit(int mertek){
         if (mertek <= 10 || mertek >= 100){
-            System.out.println("Hibás próbálkozás,minimum 10% és maximum 100%-os növekedés lehetséges");
+            throw new IllegalArgumentException("A licit mértéke 10% és 100% között kell hogy legyen");
+            //System.out.println("Hibás próbálkozás,minimum 10% és maximum 100%-os növekedés lehetséges");
         }
-        else if (this.elkelt = true){
-            System.out.println("Hibás próbálkozás, a tárgy már elkelt");
+        if (this.elkelt = true){
+            throw new RuntimeException("A festmény már elkelt");
+            //System.out.println("Hibás próbálkozás, a tárgy már elkelt"); Csak a mainben írunk ki
         } else if (this.licitekSzama == 0) {
             this.legmagasabbLicit = 100;
             this.licitekSzama++;
             this.legutolsoLicitIdeje = LocalDateTime.now();
         }else{
-            this.legmagasabbLicit = Integer.parseInt(String.valueOf(Math.round(legmagasabbLicit*1.1)));
+            //this.legmagasabbLicit = Integer.parseInt(String.valueOf(Math.round(legmagasabbLicit*((mertek/100)+1)));
+            int ujLicit = (int)(legmagasabbLicit * ((mertek + 100) / 100));
         }
+    }
+    public int getKerekitettLicitMatematikaiMuveletekkel(int ujLicit){
+        int osztasokSzama = 0;
+        if (ujLicit > 100){
+            ujLicit /= 10;
+        }
+        ujLicit *= Math.pow(10, osztasokSzama);
+        return ujLicit;
+    }
+    public String toString(){
+
     }
 }

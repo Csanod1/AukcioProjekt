@@ -1,11 +1,15 @@
 package hu.otthon;
 import java.io.FileNotFoundException;
 import java.io.IOException;
+import java.sql.SQLOutput;
+
 public class Main {
 
     public static void main(String[] args) {
-        Festmeny a = new Festmeny("Bálint Ferenc", "Hómező", "Expresszionizmus");
-        System.out.println(a);
+        Festmeny a = new Festmeny("Hómező", "Bálint Ferenc", "Expresszionizmus");
+
+        a.getKerekitettLicitMatematikaiMuveletekkel(10);
+
         try {
             Festmenyek emberek2 = new Festmenyek("festmenyek.csv");
             System.out.println(emberek2);
