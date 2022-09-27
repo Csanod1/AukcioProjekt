@@ -4,7 +4,8 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="9a6c17f6-02cc-466b-b231-30864b467223" name="Changes" comment="Nem működik a licit(int mertek) fv órai órát nézd át">
+    <list default="true" id="9a6c17f6-02cc-466b-b231-30864b467223" name="Changes" comment="-FestmenyekFelveteleKonzolról()">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/hu/otthon/Festmeny.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/hu/otthon/Festmeny.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/hu/otthon/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/hu/otthon/Main.java" afterDir="false" />
     </list>
@@ -92,7 +93,14 @@
       <option name="project" value="LOCAL" />
       <updated>1664284823406</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="-FestmenyekFelveteleKonzolról()">
+      <created>1664286469766</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1664286469766</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -111,6 +119,7 @@
     <MESSAGE value="-licit" />
     <MESSAGE value="-Eddig jutottam" />
     <MESSAGE value="Nem működik a licit(int mertek) fv órai órát nézd át" />
-    <option name="LAST_COMMIT_MESSAGE" value="Nem működik a licit(int mertek) fv órai órát nézd át" />
+    <MESSAGE value="-FestmenyekFelveteleKonzolról()" />
+    <option name="LAST_COMMIT_MESSAGE" value="-FestmenyekFelveteleKonzolról()" />
   </component>
 </project>

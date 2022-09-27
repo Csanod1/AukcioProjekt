@@ -1,10 +1,16 @@
 package hu.otthon;
 
+import java.io.BufferedReader;
+import java.io.FileNotFoundException;
+import java.io.FileReader;
+import java.io.IOException;
 import java.sql.SQLOutput;
 import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 import java.time.format.DateTimeFormatterBuilder;
+
+import static hu.otthon.Festmenyek.festmenyek;
 
 public class Festmeny {
     private String cim;
@@ -113,11 +119,15 @@ public class Festmeny {
     @Override
     public String toString() {
         DateTimeFormatter formatum = DateTimeFormatter.ofPattern("YYYY-MM-dd HH:mm:ss");
+        String s = String.format("%s: %s (%s)", this.festo, this.cim, this.stilus,);
+        if (this.licitekSzama > 0){
+            return s;
+        }
         return String.format("%s: %s (%s)\n" +
                 "%s" +
                 "%d $ - %s (összesen: %d db)\n",
-                this.festo, this.cim, this.stilus,
                 this.elkelt ? "elkelt\n" : "",
                 this.legmagasabbLicit, this.legutolsoLicitIdeje.format(formatum), this.licitekSzama);
     }
+
 }
