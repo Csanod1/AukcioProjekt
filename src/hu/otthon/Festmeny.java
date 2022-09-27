@@ -3,6 +3,8 @@ package hu.otthon;
 import java.sql.SQLOutput;
 import java.time.LocalDate;
 import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
+import java.time.format.DateTimeFormatterBuilder;
 
 public class Festmeny {
     private String cim;
@@ -107,7 +109,15 @@ public class Festmeny {
         ujLicit *= Math.pow(10, osztasokSzama);
         return ujLicit;
     }
-    public String toString(){
 
+    @Override
+    public String toString() {
+        DateTimeFormatter formatum = DateTimeFormatter.ofPattern("YYYY-MM-dd HH:mm:ss");
+        return String.format("%s: %s (%s)\n" +
+                "%s" +
+                "%d $ - %s (összesen: %d db)\n",
+                this.festo, this.cim, this.stilus,
+                this.elkelt ? "elkelt\n" : "",
+                this.legmagasabbLicit, this.legutolsoLicitIdeje.format(formatum), this.licitekSzama);
     }
 }
